@@ -7,18 +7,23 @@ function printQuote(){
   var quote = getRandomQuote()
   var quoteString = "<p class = 'quote'>";
   quoteString += quote.quote;
-  quoteString += "</p> <p class='source>'";
+  quoteString += "</p> <p class='source'>";
   quoteString += quote.source;
-  if ( quote.year != 'undefined') {
-    quoteString += "<span class='year'>";
-    quoteString += quote.year;
-    quoteString += " </span>";
-    quoteString += quote.source;
-  }
-  if (typeof quote.citation != 'undefined') {
+
+  if (typeof quote.citation != "undefined") {
     quoteString += "<span class='citation'>";
     quoteString += quote.citation;
     quoteString += " </span>";
+  }
+  if (typeof quote.year != "undefined") {
+    quoteString += "<span class='year'>";
+    quoteString += quote.year;
+    quoteString += " </span>";
+  }
+  if (typeof quote.catagory != "undefined") {
+    quoteString += "<span class='category'> ";
+    quoteString += quote.catagory;
+    quoteString += "</span>";
   }
   quoteString += "</p>";
   document.getElementById('quote-box').innerHTML = quoteString;
@@ -115,3 +120,4 @@ printQuote();
 
 //called to change quote if left for too long
 setInterval('printQuote()', 10000);
+
